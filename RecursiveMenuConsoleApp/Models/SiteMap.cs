@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using RecursiveMenuConsoleApp.Models;
 
-namespace RecursiveMenuConsoleApp.DAO
+namespace RecursiveMenuConsoleApp.Models
 {
     public class SiteMap
     {
