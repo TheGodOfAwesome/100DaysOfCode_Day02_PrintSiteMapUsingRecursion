@@ -9,7 +9,6 @@ namespace RecursiveMenuConsoleApp
         {
             PopulateNav nav = new PopulateNav();
             DataService data = new DataService();
-            Console.WriteLine("\n");
             nav.RecurseThroughMenu(data.GetAllMenuItems(), 1);
         }
     }
