@@ -96,6 +96,7 @@ namespace RecursiveMenuConsoleApp.Services
                             Link = menuItem.Link
                         };
                         children.Add(navItem);
+                        children = MapGrandChildren(menuItems, navItem.Id, children);
                         id = menuItem.ParentId;
                     }
                 }
