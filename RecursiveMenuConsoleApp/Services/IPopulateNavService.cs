@@ -45,10 +45,12 @@ namespace RecursiveMenuConsoleApp.Services
             {
                 if (parentId == menuItem.ParentId && !navList.Contains(menuItem.Title))
                 {
-                    NavItem navItem = new NavItem();
-                    navItem.Id = menuItem.Id;
-                    navItem.Title = menuItem.Title;
-                    navItem.Link = menuItem.Link;
+                    NavItem navItem = new NavItem
+                    {
+                        Id = menuItem.Id,
+                        Title = menuItem.Title,
+                        Link = menuItem.Link
+                    };
                     navSummary.Add(map.NavSummary(menuItems, navItem.Id));
                     var navPath = map.MapNavTree(menuItems, parentId, navItem.Id);
                     navMap.Add(navPath);

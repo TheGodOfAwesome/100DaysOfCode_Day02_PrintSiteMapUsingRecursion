@@ -18,6 +18,8 @@ namespace RecursiveMenuConsoleApp.Services
             using (var connection =
                 new SqlConnection("Server=KUZIVAKWASHE-PC\\SQLEXPRESS;Database=Learning;Integrated Security=True"))
             {
+                Console.WriteLine("Id | " + "Link  | " + "Title | " + "ParentId | " +
+                                  "Parent\n");
                 connection.Open();
                 var command = new SqlCommand("Select * From Menu", connection);
                 using (var reader = command.ExecuteReader())
