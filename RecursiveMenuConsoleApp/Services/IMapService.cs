@@ -70,6 +70,32 @@ namespace RecursiveMenuConsoleApp.Services
                             Link = menuItem.Link
                         };
                         children.Add(navItem);
+                        children = MapGrandChildren(menuItems, navItem.Id, children);
+                        id = menuItem.ParentId;
+                    }
+                }
+                if (idCheck == id)
+                    id = null;
+            }
+            return children;
+        }
+
+        private List<NavItem> MapGrandChildren(List<MenuItem> menuItems, int? id, List<NavItem> children)
+        {
+            while (id != null)
+            {
+                var idCheck = id;
+                foreach (var menuItem in menuItems)
+                {
+                    if (menuItem.ParentId == id)
+                    {
+                        NavItem navItem = new NavItem
+                        {
+                            Id = menuItem.Id,
+                            Title = menuItem.Title,
+                            Link = menuItem.Link
+                        };
+                        children.Add(navItem);
                         id = menuItem.ParentId;
                     }
                 }
