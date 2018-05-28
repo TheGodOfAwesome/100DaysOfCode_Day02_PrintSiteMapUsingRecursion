@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.IO;
+using Newtonsoft.Json;
 using RecursiveMenuConsoleApp.Services;
 
 namespace RecursiveMenuConsoleApp
@@ -9,7 +10,8 @@ namespace RecursiveMenuConsoleApp
         {
             PopulateNav nav = new PopulateNav();
             DataService data = new DataService();
-            nav.RecurseThroughMenu(data.GetAllMenuItems(), 1);
+            var navSummary = nav.RecurseThroughMenu(data.GetAllMenuItems(), 1);
+            File.WriteAllText(@"C:\Dev\RecursiveMenuConsoleApp\SiteMap\sitemap.json", JsonConvert.SerializeObject(navSummary));
         }
     }
 }
